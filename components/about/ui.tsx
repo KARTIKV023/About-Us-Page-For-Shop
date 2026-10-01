@@ -1,0 +1,125 @@
+
+import Image from "next/image";
+import type { ElementType, ReactNode } from "react";
+import { company, type IconItem, type ImageAsset, type Line } from "@/content/about";
+
+
+export const HEADING = "font-[family-name:var(--font-heading)] uppercase leading-[0.95] tracking-tight";
+
+export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
+  return <div className={`mx-auto w-full max-w-7xl px-6 ${className}`}>{children}</div>;
+}
+
+
+export function SectionLabel({ num, text }: { num?: string; text: string }) {
+  return (
+    <div className="mb-6 inline-block">
+      <p className="flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-brand">
+        {num && <span className="text-base">{num}</span>}
+        <span>{text}</span>
+      </p>
+      <span className="mt-1 block h-0.5 w-10 bg-brand" />
+    </div>
+  );
+}
+
+
+export function Headline({
+  lines, as: Tag = "h2", size = "text-5xl sm:text-6xl lg:text-7xl", dark = false, className = "",
+}: { lines: Line[]; as?: ElementType; size?: string; dark?: boolean; className?: string }) {
+  return (
+    <Tag className={`${HEADING} ${size} ${dark ? "text-white" : "text-ink"} ${className}`}>
+      {lines.map((l) => (
+        <span key={l.text} className={`block ${l.accent ? "text-brand" : ""}`}>{l.text}</span>
+      ))}
+    </Tag>
+  );
+}
+
+
+export function Rule({ className = "" }: { className?: string }) {
+  return <span className={`block h-0.5 w-12 bg-brand ${className}`} />;
+}
+
+
+export function Accent({ pre, accent, className = "" }: { pre: string; accent: string; className?: string }) {
+  return <span className={className}>{pre} <span className="text-brand">{accent}</span></span>;
+}
+
+export function SectionIntro({
+  id, num, label, title, body,
+  size = "text-6xl sm:text-7xl",
+  rule = "my-6",
+}: {
+  id: string;
+  num?: string;
+  label: string;
+  title: Line[];
+  body: ReactNode;
+  size?: string;
+  rule?: string;
+}) {
+  return (
+    <div>
+      <SectionLabel num={num} text={label} />
+      <div id={id}><Headline lines={title} size={size} /></div>
+      <Rule className={rule} />
+      {body}
+    </div>
+  );
+}
+
+
+export function Bg({ image, eager = false, sizes = "100vw", className = "" }: { image: ImageAsset; eager?: boolean; sizes?: string; className?: string }) {
+  return (
+    <Image
+      src={image.src}
+      alt={image.alt}         
+      fill
+      loading={eager ? "eager" : "lazy"}
+      fetchPriority={eager ? "high" : undefined}
+      sizes={sizes}
+      style={{ objectPosition: image.position ?? "center" }}
+      className={`object-cover ${className}`}
+    />
+  );
+}
+
+
+export function IconChip({ icon: Icon, className = "" }: { icon: IconItem["icon"]; className?: string }) {
+  return (
+    <span className={`grid size-10 shrink-0 place-items-center rounded-full bg-sky-50 text-brand ${className}`}>
+      <Icon className="size-1/2" aria-hidden />
+    </span>
+  );
+}
+
+export function Orbit({
+  items, centerText, tone = "light", className = "",
+}: { items: IconItem[]; centerText: string[]; tone?: "light" | "dark"; className?: string }) {
+  const radius = 40; 
+  const dark = tone === "dark";
+  return (
+    <div className={`relative mx-auto aspect-square w-full max-w-[520px] ${className}`} role="img" aria-label={`${company.name} services: ${items.map((i) => i.label).join(", ")}`}>
+      
+      <div aria-hidden className={`absolute inset-[10%] rounded-full border ${dark ? "border-white/40" : "border-brand/40"}`} />
+      
+      <div className={`absolute inset-[30%] flex flex-col items-center justify-center rounded-full p-3 text-center shadow-xl ${dark ? "bg-white text-ink" : "bg-ink text-white"}`}>
+        <Image src={company.logo} alt="" width={company.logoWidth} height={company.logoHeight} className="mb-1 h-auto w-1/4 min-w-8" />
+        <p className={`${HEADING} text-sm sm:text-base`}>{company.name}</p>
+        {centerText.map((t) => <p key={t} className="text-[9px] font-semibold leading-tight sm:text-[11px]">{t}</p>)}
+      </div>
+      
+      {items.map(({ label, icon: Icon }, i) => {
+        const a = ((-90 + (360 / items.length) * i) * Math.PI) / 180;
+        return (
+          <div key={label} className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+               style={{ left: `${50 + radius * Math.cos(a)}%`, top: `${50 + radius * Math.sin(a)}%` }}>
+            <span className="grid size-10 place-items-center rounded-full bg-white text-ink shadow-lg sm:size-14"><Icon className="size-5 sm:size-6" aria-hidden /></span>
+            <span className={`text-[8px] font-bold tracking-wide sm:text-[10px] ${dark ? "text-white" : "text-ink"}`}>{label}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
