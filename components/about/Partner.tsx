@@ -10,7 +10,7 @@ export default function Partner() {
     <RevealSection id="not-a-vendor" labelledBy="partner-title">
      
       <div className="relative overflow-hidden bg-slate-50 py-16">
-        <Container className="grid items-center gap-10 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
           <Reveal delay={staggerDelay(0)}>
             <SectionIntro
               id="partner-title"
@@ -22,7 +22,7 @@ export default function Partner() {
           </Reveal>
           <Reveal delay={staggerDelay(1)} className="relative aspect-[4/3]">
             
-            <Image src={company.logo} alt="" width={company.logoWidth} height={company.logoHeight} aria-hidden className="absolute -right-6 top-0 h-auto w-2/3 opacity-15" />
+            <Image src={company.logo} alt="" width={company.logoWidth} height={company.logoHeight} aria-hidden className="absolute right-0 top-0 h-auto w-1/2 opacity-15 lg:-right-6 lg:w-2/3" />
            
             <Bg image={partner.image} sizes="(min-width:1024px) 600px, 100vw" className="[mask-image:linear-gradient(to_bottom,black_75%,transparent)]" />
           </Reveal>
@@ -32,7 +32,7 @@ export default function Partner() {
       
       <Container className="pb-10">
         <Reveal delay={staggerDelay(0)}>
-          <div className="grid overflow-hidden rounded-2xl shadow-xl md:grid-cols-2">
+          <div className="grid grid-cols-1 overflow-hidden rounded-2xl shadow-xl md:grid-cols-2">
             {[{ d: partner.client, dark: false }, { d: partner.partnerCol, dark: true }].map(({ d, dark }) => (
               <div key={d.title} className={`p-8 ${dark ? "bg-ink text-white" : "bg-white text-ink"}`}>
                 <h3 className={`${HEADING} mb-6 border-b pb-2 text-2xl ${dark ? "border-white/20" : "border-slate-200"}`}>{d.title}</h3>
@@ -53,9 +53,9 @@ export default function Partner() {
         
         <div aria-hidden className="absolute inset-0 -z-10 opacity-50 mix-blend-multiply"><Bg image={partner.focus.image} sizes="100vw" /></div>
         <Container className="grid items-center gap-8 text-center md:grid-cols-[1fr_auto_1fr]">
-          <Reveal delay={staggerDelay(0)}><Headline lines={partner.focus.left} size="text-4xl sm:text-5xl" dark /></Reveal>
+          <Reveal delay={staggerDelay(0)}><Headline lines={partner.focus.left} size="text-3xl sm:text-5xl" dark /></Reveal>
           <span aria-hidden className="mx-auto hidden h-24 w-px bg-white/60 md:block" />
-          <Reveal delay={staggerDelay(1)}><Headline lines={partner.focus.right} size="text-4xl sm:text-5xl" dark /></Reveal>
+          <Reveal delay={staggerDelay(1)}><Headline lines={partner.focus.right} size="text-3xl sm:text-5xl" dark /></Reveal>
         </Container>
       </div>
 

@@ -16,8 +16,8 @@ export default function PromisePanel() {
         <Container>
           <Reveal delay={staggerDelay(0)}>
             <p className="mb-6 text-xs font-bold tracking-widest text-brand">{promise.label}</p>
-            <div id="promise-title"><Headline lines={promise.title} size="text-4xl sm:text-6xl" dark /></div>
-            <Headline lines={promise.title2} size="text-4xl sm:text-6xl" dark className="mt-6" />
+            <div id="promise-title"><Headline lines={promise.title} size="text-3xl sm:text-6xl" dark /></div>
+            <Headline lines={promise.title2} size="text-3xl sm:text-6xl" dark className="mt-6" />
           </Reveal>
           <Reveal delay={staggerDelay(1)}>
             <ul className="mx-auto mt-10 max-w-sm space-y-3 text-left">
@@ -32,7 +32,7 @@ export default function PromisePanel() {
           <Reveal delay={staggerDelay(2)}>
             <div className="mt-10">
               <p className="text-lg tracking-wide">{promise.closing.pre}</p>
-              <p className={`${HEADING} text-5xl text-brand sm:text-6xl`}>{promise.closing.accent}</p>
+              <p className={`${HEADING} text-3xl text-brand sm:text-6xl`}>{promise.closing.accent}</p>
             </div>
           </Reveal>
         </Container>

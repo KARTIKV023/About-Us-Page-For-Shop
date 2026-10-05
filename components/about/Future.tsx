@@ -13,7 +13,7 @@ export default function Future() {
       <Container>
         <Reveal delay={staggerDelay(0)}>
           <SectionLabel num={future.label.num} text={future.label.text} />
-          <div id="future-title"><Headline lines={future.title} size="text-6xl sm:text-7xl" /></div>
+          <div id="future-title"><Headline lines={future.title} size="text-4xl sm:text-7xl" /></div>
         </Reveal>
 
         <Reveal delay={staggerDelay(1)}>

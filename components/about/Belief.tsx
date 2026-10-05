@@ -8,7 +8,7 @@ export default function Belief() {
   return (
     <RevealSection id="what-we-believe" labelledBy="belief-title">
       <div className="relative overflow-hidden bg-slate-50 py-16">
-        <Container className="grid gap-10 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <Reveal delay={staggerDelay(0)}>
             <SectionIntro
               id="belief-title"
@@ -22,7 +22,7 @@ export default function Belief() {
             />
           </Reveal>
 
-          <Reveal delay={staggerDelay(1)}>
+          <Reveal delay={staggerDelay(5)}>
             <ol>
               {belief.chain.map(({ label, sub, icon }, i) => (
                 <li key={label} className={`relative flex items-center gap-4 rounded-2xl bg-white p-4 shadow-md ${i < belief.chain.length - 1 ? "mb-6 after:absolute after:left-1/2 after:top-full after:h-6 after:w-px after:bg-brand" : ""}`}>
@@ -41,7 +41,7 @@ export default function Belief() {
         </div>
         <Container>
           <Reveal delay={staggerDelay(0)} className="border-l-4 border-brand pl-6">
-            <Headline lines={belief.infra.title} size="text-5xl sm:text-6xl" dark />
+            <Headline lines={belief.infra.title} size="text-3xl sm:text-6xl" dark />
             <p className="mt-4 max-w-md text-sm text-slate-300">{belief.infra.pre} <span className="text-brand">{belief.infra.accent}</span></p>
           </Reveal>
         </Container>

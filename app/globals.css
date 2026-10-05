@@ -62,3 +62,40 @@ html {
     transform: scale(1.04);
   }
 }
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes counter-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit {
+  animation: orbit 90s linear infinite;
+}
+
+.orbit-counter {
+  animation: counter-orbit 90s linear infinite;
+}
+
+/* Pause the entire orbit when an item is hovered */
+.orbit:has(.orbit-item:hover) {
+  animation-play-state: paused;
+}
+
+.orbit:has(.orbit-item:hover) .orbit-counter {
+  animation-play-state: paused;
+}

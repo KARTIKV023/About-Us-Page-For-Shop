@@ -8,7 +8,7 @@ export default function Idea() {
   return (
     <RevealSection id="the-idea" labelledBy="idea-title">
       <div className="bg-slate-50 py-16">
-        <Container className="grid items-center gap-10 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
           <Reveal delay={staggerDelay(0)}>
             <SectionIntro
               id="idea-title"
@@ -26,7 +26,7 @@ export default function Idea() {
           <Bg image={idea.image} sizes="(min-width:768px) 50vw, 100vw [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_100%)]" />
         </div>
         <Container className="relative">
-          <Reveal delay={staggerDelay(0)} className="border-l-4 border-white pl-5"><Headline lines={idea.statement} size="text-4xl sm:text-5xl" dark /></Reveal>
+          <Reveal delay={staggerDelay(0)} className="border-l-4 border-white pl-5"><Headline lines={idea.statement} size="text-3xl sm:text-5xl" dark /></Reveal>
         </Container>
       </div>
     </RevealSection>

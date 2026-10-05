@@ -22,7 +22,7 @@ const IMG = "/images/about"; // base folder inside /public
 
 // SEO + structured data
 export const seo = {
-  title: "About Vijyapana | Marketing, Branding & Advertising Partner in Kanpur",
+  title: "About Vijyapana | Marketing & Advertising Agency in Kanpur",
   description:
     "Vijyapana is a marketing and advertising partner for businesses that want to build, grow and be remembered. One call. One partner. One responsibility.",
   url: "https://shop.vijyapana.com/about",
@@ -81,9 +81,18 @@ export const why = {
       { label: "ADVERTISING", icon: Megaphone }, { label: "PACKAGING", icon: Package },
       { label: "EVENTS", icon: CalendarDays }, { label: "SEO", icon: Search }, { label: "VIDEOS", icon: Play },
     ] as IconItem[],
+    links: [
+      ["PRINTING", "CORPORATE GIFTS"], ["PRINTING", "PACKAGING"],
+      ["WEBSITE", "CORPORATE GIFTS"], ["WEBSITE", "BRANDING"],
+      ["SOCIAL MEDIA", "BRANDING"], ["SOCIAL MEDIA", "EVENTS"],
+      ["PHOTOGRAPHY", "CORPORATE GIFTS"], ["PHOTOGRAPHY", "ADVERTISING"],
+      ["CORPORATE GIFTS", "PACKAGING"], ["BRANDING", "PACKAGING"],
+      ["BRANDING", "EVENTS"], ["ADVERTISING", "EVENTS"],
+      ["PACKAGING", "SEO"], ["EVENTS", "VIDEOS"], ["SEO", "VIDEOS"],
+    ] as [string, string][],
   },
   oneVendor: {
-    title: [{ text: "WHY MANAGE" }, { text: "TEN VENDORS ?" }, { text: "WHEN YOU CAN HAVE ONE PARTNER?", accent: true }] as Line[],
+    title: [{ text: "WHY MANAGE" }, { text: "TEN VENDORS " }, { text: "WHEN YOU CAN HAVE ONE PARTNER?"}] as Line[],
   },
 };
 
@@ -207,7 +216,7 @@ export const future = {
 export const promise = {
   label: "THE VIJYAPANA PROMISE",
   title: [{ text: "WE DON'T PROMISE TO DO EVERYTHING." }] as Line[],
-  title2: [{ text: "WE PROMISE" }, { text: "TO TAKE RESPONSIBILITY.", accent: true }] as Line[],
+  title2: [{ text: "WE PROMISE" , accent: true}, { text: "TO TAKE RESPONSIBILITY.", accent: true }] as Line[],
   chain: [
     { pre: "RESPONSIBILITY CREATES", accent: "TRUST.", icon: ShieldCheck },
     { pre: "TRUST CREATES", accent: "BRANDS.", icon: Users },

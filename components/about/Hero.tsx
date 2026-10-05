@@ -10,17 +10,18 @@ export default function Hero() {
         <div aria-hidden className="absolute inset-0 -z-10 opacity-50 [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px]" />
       </ScrollLayer>
 
-      <Container className="grid items-center gap-10 py-16 lg:grid-cols-2 lg:py-24">
+      <Container className="grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:py-24">
         <ScrollLayer y={-90} fade>
           <div>
             <SectionLabel text={hero.label.text} />
-            <div id="about-h1"><Headline as="h1" lines={hero.title} size="text-6xl sm:text-7xl xl:text-8xl" /></div>
-            <p className={`${HEADING} mt-3 text-2xl text-ink sm:text-3xl`}>{hero.sub}</p>
+            <div id="about-h1"><Headline as="h1" lines={hero.title} size="text-4xl sm:text-7xl xl:text-8xl" /></div>
+            <p className={`${HEADING} mt-5 text-xl text-ink sm:text-3xl`}>{hero.sub}</p>
             <Rule className="my-2" />
             <p className="max-w-md text-lg text-slate-700">{hero.body}</p>
-            <div className={`${HEADING} mt-2 text-3xl text-ink sm:text-4xl`}>
+            <div className={`${HEADING} mt-5 text-xl text-ink sm:text-4xl`}>
               {hero.tagline.map((l) => <span key={l.text} className={`block ${l.accent ? "text-brand" : ""}`}>{l.text}</span>)}
             </div>
+            
           </div>
         </ScrollLayer>
 

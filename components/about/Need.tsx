@@ -8,7 +8,7 @@ export default function Need() {
   return (
     <RevealSection id="what-you-need" labelledBy="need-title">
       <div className="bg-slate-50 pt-16">
-        <Container className="grid gap-10 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 gap-10 lg:grid-cols-2">
           <Reveal delay={staggerDelay(0)}>
             <SectionIntro
               id="need-title"
@@ -48,7 +48,7 @@ export default function Need() {
             <p className="mb-6 flex items-center gap-4 text-sm font-semibold text-brand before:h-px before:flex-1 before:bg-brand/30 after:h-px after:flex-1 after:bg-brand/30">Sometimes…</p>
           </Reveal>
           <Reveal delay={staggerDelay(1)}>
-            <div className="grid gap-4 md:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
               {need.sometimes.map(({ top, accent, icon }) => (
                 <div key={top} className="lift flex flex-col items-center gap-3 rounded-2xl bg-white p-6 text-center shadow-md">
                   <IconChip icon={icon} className="size-14" />
@@ -66,7 +66,7 @@ export default function Need() {
         <div aria-hidden className="absolute bottom-0 left-0 h-40 w-64 bg-brand [clip-path:polygon(0_35%,55%_65%,100%_100%,0_100%)]" />
         <Container className="relative">
           <Reveal delay={staggerDelay(0)}>
-            <Headline lines={need.outcomes.title} size="text-5xl sm:text-6xl" dark />
+            <Headline lines={need.outcomes.title} size="text-3xl sm:text-6xl" dark />
             <div className="mt-6 text-sm text-slate-300">{need.outcomes.body.map((b) => <p key={b}>{b}</p>)}</div>
           </Reveal>
         </Container>
