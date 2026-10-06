@@ -18,7 +18,7 @@ export default function PromisePanel() {
             <p className="mb-6 text-xs font-bold tracking-widest text-brand">{promise.label}</p>
             <div id="promise-title"><Headline lines={promise.title} size="text-3xl sm:text-6xl" dark /></div>
             
-           <p className={`${HEADING} mt-5 text-xl text-brand sm:text-3xl ${caseClass(promise.sub.case)}`}>{promise.sub.text}</p>
+           <p className={`${HEADING} mt-5 text-xl text-brand sm:text-5xl ${caseClass(promise.sub.case)}`}>{promise.sub.text}</p>
             
 
           </Reveal>

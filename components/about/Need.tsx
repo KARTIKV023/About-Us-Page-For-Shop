@@ -30,12 +30,12 @@ export default function Need() {
           <Reveal delay={staggerDelay(1)}>
             <ol className="space-y-3 lg:pt-10">
               {need.questions.map((q, i) => (
-                <li key={q} className="lift flex items-center gap-4 rounded-full bg-white px-4 py-2 shadow-md">
+                <li key={q} className="lift flex items-center gap-4 rounded-full bg-white px-8 py-6 shadow-md">
                   <span className="grid size-8 place-items-center rounded-full bg-brand text-xs font-bold text-white">{String(i + 1).padStart(2, "0")}</span>
                   <span className={`${HEADING} text-lg text-ink`}>{q}</span>
                 </li>
               ))}
-              <li className="lift flex items-center gap-4 rounded-full bg-brand px-4 py-3 text-white shadow-lg">
+              <li className="lift flex items-center gap-4 rounded-full bg-brand px-8 py-6 text-white shadow-lg">
                 <span className="grid size-8 place-items-center rounded-full bg-ink text-xs font-bold">08</span>
                 <span className={`${HEADING} text-xl`}>{need.finalQuestion}</span>
               </li>

@@ -12,9 +12,10 @@ export default function WhyExists() {
   return (
     <RevealSection id="why-vijyapana-exists" labelledBy="why-title">
     
-      <div className="bg-slate-50 py-1">
+      <div className="bg-white py-1">
+        
         <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
-          <Reveal delay={staggerDelay(0)}>
+         
             <SectionIntro
               id="why-title"
               num={why.label.num}
@@ -23,8 +24,8 @@ export default function WhyExists() {
               size="text-3xl sm:text-6xl"
               body={<p className="max-w-xs text-slate-700">{why.body}</p>}
             />
-          </Reveal>
-          <Reveal delay={staggerDelay(1)} className="relative mx-auto aspect-square w-full max-w-lg">
+         
+          <Reveal delay={staggerDelay(0)} className="relative mx-auto aspect-square w-full max-w-lg">
             {/* fades out on the left via CSS mask */}
             <div className="absolute inset-0 overflow-hidden">
               <div className="absolute inset-0 translate-x-[-8%] lg:-translate-x-[120px] [mask-image:linear-gradient(to_right,transparent_0%,black_15%,black_82%,transparent_100%)]"><Bg image={why.image} sizes="(min-width:1024px) 512px, 100vw" className="grayscale" />

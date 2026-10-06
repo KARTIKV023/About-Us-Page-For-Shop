@@ -6,13 +6,11 @@ import { Bg, Container, Headline, Rule, SectionLabel, caseClass, HEADING } from 
 
 export default function Hero() {
   return (
-    <HeroScroll id="who-we-are" labelledBy="about-h1" className="relative isolate overflow-hidden bg-slate-50">
-      <ScrollLayer y={-40}>
-        <div aria-hidden className="absolute inset-0 -z-10 opacity-50 [background-image:radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px]" />
-      </ScrollLayer>
+    <HeroScroll id="who-we-are" labelledBy="about-h1" className="relative isolate overflow-hidden bg-white">
+      
 
-      <Container className="grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:py-24">
-        <ScrollLayer y={-90} fade className="order-2 lg:order-1">
+      <Container className="grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:pt-12">
+        <ScrollLayer y={-20}>
           <div>
             <SectionLabel text={hero.label.text} />
             <div id="about-h1"><Headline as="h1" lines={hero.title} size="text-4xl sm:text-7xl xl:text-8xl" /></div>

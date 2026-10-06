@@ -115,6 +115,15 @@ export const orbitItems: IconItem[] = [
   { label: "PRINT", icon: Printer }, { label: "ADVERTISING", icon: Megaphone },
 ];
 
+export const serviceItems:IconItem[] = [
+  { label: "BRANDING", icon: Tag }, { label: "DIGITAL", icon: Globe },
+  { label: "SOCIAL MEDIA", icon: MessageCircle }, { label: "VIDEO", icon: Play },
+  { label: "AUDIO", icon: Mic }, { label: "WEBSITES", icon: Laptop },
+  { label: "PACKAGING", icon: Package }, { label: "SEO", icon: Search },
+  { label: "PRINT", icon: Printer }, { label: "ADVERTISING", icon: Megaphone },
+];
+
+
 // THE IDEA
 export const idea = {
   label: { num: "03", text: "THE IDEA" },
