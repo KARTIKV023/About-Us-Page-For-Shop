@@ -15,7 +15,7 @@ import {
 
 // shared types
 export interface ImageAsset { src: string; alt: string; position?: string } // position = CSS object-position
-export interface Line { text: string; accent?: boolean }                   // one headline line
+export interface Line { text: string; accent?: boolean; case?: "upper" | "lower" | "normal"; }                   // one headline line
 export interface IconItem { label: string; icon: LucideIcon }
 
 const IMG = "/images/about"; // base folder inside /public
@@ -42,11 +42,14 @@ export const company = {
 
 // HERO
 export const hero = {
-  label: { num: "01", text: "WHO WE ARE" },
+  label: { num: "01", text: "WHO WE ARE ?" },
   title: [{ text: "WE DON'T JUST" }, { text: "DO MARKETING.", accent: true }] as Line[],
-  sub: "WE TAKE RESPONSIBILITY FOR IT.",
-  body: "Vijyapana is a marketing and advertising partner for businesses that want to build, grow and be remembered.",
-  tagline: [{ text: "YOU BUILD THE BUSINESS." }, { text: "WE BUILD THE BRAND.", accent: true }] as Line[],
+  sub: { text: "We Take Responsibility For It.", case: "upper" } as Line,
+  body: "Vijyapana is a marketing and advertising partner for businesses that want to build, grow, and be remembered.",
+  tagline: [
+    { text: "You Build The Business.", case: "normal" },
+    { text: "We Build The Brand.", accent: true, case: "normal" },
+  ] as Line[],
 
   image: { src: `${IMG}/hero-team.webp`, alt: "Vijyapana team planning brand strategy on a whiteboard" } as ImageAsset,
 };
@@ -79,7 +82,7 @@ export const why = {
       { label: "SOCIAL MEDIA", icon: MessageCircle }, { label: "PHOTOGRAPHY", icon: Camera },
       { label: "CORPORATE GIFTS", icon: Gift }, { label: "BRANDING", icon: PenTool },
       { label: "ADVERTISING", icon: Megaphone }, { label: "PACKAGING", icon: Package },
-      { label: "EVENTS", icon: CalendarDays }, { label: "SEO", icon: Search }, { label: "VIDEOS", icon: Play },
+      { label: "EVENTS", icon: CalendarDays }, { label: "SEO", icon: Search }, { label: "VIDEOS", icon: Play }, { label: "AUDIO PRODUCTION", icon: Play }
     ] as IconItem[],
     links: [
       ["PRINTING", "CORPORATE GIFTS"], ["PRINTING", "PACKAGING"],
@@ -88,11 +91,18 @@ export const why = {
       ["PHOTOGRAPHY", "CORPORATE GIFTS"], ["PHOTOGRAPHY", "ADVERTISING"],
       ["CORPORATE GIFTS", "PACKAGING"], ["BRANDING", "PACKAGING"],
       ["BRANDING", "EVENTS"], ["ADVERTISING", "EVENTS"],
-      ["PACKAGING", "SEO"], ["EVENTS", "VIDEOS"], ["SEO", "VIDEOS"],
+      ["PACKAGING", "SEO"], ["EVENTS", "VIDEOS"], ["SEO", "VIDEOS"], ["VIDEOS", "AUDIO PRODUCTION"], ["EVENTS", "AUDIO PRODUCTION"],
     ] as [string, string][],
   },
   oneVendor: {
-    title: [{ text: "WHY MANAGE" }, { text: "TEN VENDORS " }, { text: "WHEN YOU CAN HAVE ONE PARTNER?"}] as Line[],
+    // title: [{ text: "WHY MANAGE" }, { text: "TEN VENDORS " }, { text: "WHEN YOU CAN HAVE ONE PARTNER?"}] as Line[],
+    title: [{ text: "WHY MANAGE" }, { text: "TEN VENDORS ?" }, { text: "WHEN YOU CAN HAVE ONE PARTNER." }] as Line[],
+    body: "From strategy and branding to digital content, packaging and growth, we bring every part of your brand together & everything in between.",
+    callout: "EXPLORE WHAT WE DO →",
+    cta: {
+    primary: { label: "START A CONVERSATION", href: "/contact" },
+    secondary: { label: "EXPLORE WHAT WE DO", href: "/work" },
+    },
   },
 };
 
@@ -140,7 +150,7 @@ export const need = {
 // NOT A VENDOR
 export const partner = {
   label: { num: "05", text: "NOT A VENDOR" },
-  title: [{ text: "WE DON'T WANT" }, { text: "CLIENTS.", accent: true }, { text: "WE WANT" }, { text: "PARTNERS.", accent: true }] as Line[],
+  title: [{ text: "WE DON'T WANT" }, { text: "CLIENTS,", accent: true }, { text: "WE WANT" }, { text: "PARTNERS.", accent: true }] as Line[],
   body: ["A different relationship.", "A shared responsibility."],
 
   image: { src: `${IMG}/partner-handshake.webp`, alt: "Vijyapana and a client shaking hands as partners" } as ImageAsset,
@@ -192,7 +202,7 @@ export const belief = {
 // THE FUTURE WE WANT
 export const future = {
   label: { num: "07", text: "THE FUTURE WE WANT" },
-  title: [{ text: "YOU RUN" }, { text: "YOUR BUSINESS." }, { text: "WE BRING YOU", accent: true }, { text: "CUSTOMERS.", accent: true }] as Line[],
+  title: [{ text: "YOU RUN" }, { text: "YOUR BUSINESS," }, { text: "WE BRING YOU", accent: true }, { text: "CUSTOMERS.", accent: true }] as Line[],
 
   image: { src: `${IMG}/future-sunset.webp`, alt: "Business leader looking over an Indian city skyline at sunset", position: "70% center" } as ImageAsset,
   beliefs: [
@@ -217,6 +227,7 @@ export const promise = {
   label: "THE VIJYAPANA PROMISE",
   title: [{ text: "WE DON'T PROMISE TO DO EVERYTHING." }] as Line[],
   title2: [{ text: "WE PROMISE" , accent: true}, { text: "TO TAKE RESPONSIBILITY.", accent: true }] as Line[],
+   sub: { text: "WE PROMISE TO TAKE THE RESPONSIBILITY", case: "upper" , accent: true } as Line,
   chain: [
     { pre: "RESPONSIBILITY CREATES", accent: "TRUST.", icon: ShieldCheck },
     { pre: "TRUST CREATES", accent: "BRANDS.", icon: Users },

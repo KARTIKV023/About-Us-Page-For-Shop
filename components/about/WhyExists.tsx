@@ -5,12 +5,14 @@ import { Reveal, RevealSection } from "./motion/Reveal";
 import { staggerDelay } from "./motion/stagger";
 import { Connections } from "./Connections";
 import { Bg, Container, Headline, Orbit, SectionIntro } from "./ui";
+import { ArrowRight, Link } from "lucide-react";
+
 
 export default function WhyExists() {
   return (
     <RevealSection id="why-vijyapana-exists" labelledBy="why-title">
     
-      <div className="bg-slate-50 py-16">
+      <div className="bg-slate-50 py-1">
         <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
           <Reveal delay={staggerDelay(0)}>
             <SectionIntro
@@ -40,7 +42,7 @@ export default function WhyExists() {
 
   
       <div className="bg-white py-16">
-        <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
+        <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 ">
           <Reveal delay={staggerDelay(0)}>
             <Headline lines={why.headache.title} size="text-3xl sm:text-5xl" />
             <p className="mt-6 max-w-sm text-slate-700">{why.headache.intro}</p>
@@ -56,9 +58,13 @@ export default function WhyExists() {
       </div>
 
       
-      <div className="bg-brand py-16">
+      <div className="bg-brand py-16 ">
         <Container className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
-          <Reveal delay={staggerDelay(0)}><Headline lines={why.oneVendor.title} size="text-3xl sm:text-6xl" dark /></Reveal>
+          <Reveal delay={staggerDelay(0)}>
+            <Headline lines={why.oneVendor.title} size="text-3xl sm:text-6xl" dark />
+            <p className="mt-6 max-w-sm text-slate-700">{why.oneVendor.body}</p>
+            <p className="mt-6 text-sm font-medium text-white text-bold">{why.oneVendor.callout}</p>
+          </Reveal>
           <Reveal delay={staggerDelay(1)}><Orbit items={orbitItems.slice(0, 8)} centerText={["ONE PARTNER.", "ONE RESPONSIBILITY."]} tone="dark" /></Reveal>
         </Container>
       </div>

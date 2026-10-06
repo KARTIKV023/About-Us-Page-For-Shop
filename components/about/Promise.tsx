@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { company, promise } from "@/content/about";
 import { Reveal, RevealSection } from "./motion/Reveal";
 import { staggerDelay } from "./motion/stagger";
-import { Container, Headline, HEADING } from "./ui";
+import { Container, Headline, HEADING, caseClass } from "./ui";
 
 export default function PromisePanel() {
   const { cta, footer } = promise;
@@ -17,7 +17,10 @@ export default function PromisePanel() {
           <Reveal delay={staggerDelay(0)}>
             <p className="mb-6 text-xs font-bold tracking-widest text-brand">{promise.label}</p>
             <div id="promise-title"><Headline lines={promise.title} size="text-3xl sm:text-6xl" dark /></div>
-            <Headline lines={promise.title2} size="text-3xl sm:text-6xl" dark className="mt-6" />
+            
+           <p className={`${HEADING} mt-5 text-xl text-brand sm:text-3xl ${caseClass(promise.sub.case)}`}>{promise.sub.text}</p>
+            
+
           </Reveal>
           <Reveal delay={staggerDelay(1)}>
             <ul className="mx-auto mt-10 max-w-sm space-y-3 text-left">

@@ -55,7 +55,7 @@ export function Connections({
 
   return (
     <div className={`relative ${className}`}>
-      <ul ref={wrap} className="relative z-10 flex flex-wrap justify-center gap-4">
+      <ul ref={wrap} className="relative z-10 flex flex-wrap justify-center gap-10">
         {vendors.map(({ label, icon: Icon }, i) => (
           <li
             key={label}

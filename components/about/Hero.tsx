@@ -1,7 +1,8 @@
 /** SECTION 01 — "WHO WE ARE": text left, slanted photo right. */
 import { hero } from "@/content/about";
+
 import { HeroScroll, ScrollLayer } from "./motion/Parallax";
-import { Bg, Container, Headline, Rule, SectionLabel, HEADING } from "./ui";
+import { Bg, Container, Headline, Rule, SectionLabel, caseClass, HEADING } from "./ui";
 
 export default function Hero() {
   return (
@@ -11,25 +12,23 @@ export default function Hero() {
       </ScrollLayer>
 
       <Container className="grid grid-cols-1 items-center gap-10 py-16 lg:grid-cols-2 lg:py-24">
-        <ScrollLayer y={-90} fade>
+        <ScrollLayer y={-90} fade className="order-2 lg:order-1">
           <div>
             <SectionLabel text={hero.label.text} />
             <div id="about-h1"><Headline as="h1" lines={hero.title} size="text-4xl sm:text-7xl xl:text-8xl" /></div>
-            <p className={`${HEADING} mt-5 text-xl text-ink sm:text-3xl`}>{hero.sub}</p>
+            <p className={`${HEADING} mt-5 text-xl text-ink sm:text-3xl ${caseClass(hero.sub.case)}`}>{hero.sub.text}</p>
             <Rule className="my-2" />
             <p className="max-w-md text-lg text-slate-700">{hero.body}</p>
-            <div className={`${HEADING} mt-5 text-xl text-ink sm:text-4xl`}>
-              {hero.tagline.map((l) => <span key={l.text} className={`block ${l.accent ? "text-brand" : ""}`}>{l.text}</span>)}
-            </div>
+            <Headline as="div" lines={hero.tagline} size="mt-5 text-xl text-ink sm:text-4xl" />
             
           </div>
         </ScrollLayer>
 
-        <div className="relative aspect-[4/3] w-full">
-          <div className="zoomable absolute inset-0 overflow-hidden rounded-tl-[80px] [clip-path:polygon(16%_0,100%_0,100%_100%,0_100%)]">
-            <Bg image={hero.image} eager sizes="(min-width:1024px) 600px, 100vw" className="grayscale" />
+        <div className="relative order-1 aspect-[1] w-full lg:order-2">
+          <div className="zoomable absolute inset-0 overflow-hidden rounded-tl-[80px] rounded-[40px] ">
+            <Bg image={hero.image} eager sizes="(min-width:1024px) 600px, 100vw"  />
           </div>
-          <div aria-hidden className="absolute bottom-0 right-0 h-[45%] w-[75%] bg-brand/70 mix-blend-multiply [clip-path:polygon(22%_0,100%_30%,100%_100%,0_100%)]" />
+          {/* <div aria-hidden className="absolute bottom-0 right-0 h-[30%] w-[75%] bg-brand/70 mix-blend-multiply [clip-path:polygon(22%_0,100%_30%,100%_100%,0_100%)]" /> */}
         </div>
       </Container>
     </HeroScroll>

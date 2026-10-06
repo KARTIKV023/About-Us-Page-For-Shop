@@ -6,6 +6,17 @@ import { company, type IconItem, type ImageAsset, type Line } from "@/content/ab
 
 export const HEADING = "font-[family-name:var(--font-heading)] uppercase leading-[1.01] tracking-[0.01em]";
 
+const CASE_CLASS = {
+  upper: "!uppercase",
+  lower: "!lowercase",
+  normal: "!normal-case",
+} as const satisfies Record<NonNullable<Line["case"]>, string>;
+
+/** Overrides the uppercase from HEADING so a line can be lower/normal case. */
+export function caseClass(k?: Line["case"]) {
+  return k ? CASE_CLASS[k] : "";
+}
+
 export function Container({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10 ${className}`}>{children}</div>;
 }
@@ -30,7 +41,9 @@ export function Headline({
   return (
     <Tag className={`${HEADING} ${size} ${dark ? "text-white" : "text-ink"} ${className}`}>
       {lines.map((l) => (
-        <span key={l.text} className={`block ${l.accent ? "text-brand" : ""}`}>{l.text}</span>
+        <span key={l.text} className={`block ${l.accent ? "text-brand" : ""} ${caseClass(l.case)}`}>
+          {l.text}
+        </span>
       ))}
     </Tag>
   );
@@ -105,7 +118,7 @@ export function Orbit({
   tone?: "light" | "dark";
   className?: string;
 }) {
-  const radius = 40;
+  const radius = 31;
   const dark = tone === "dark";
 
   return (
@@ -120,14 +133,14 @@ export function Orbit({
       <div
         aria-hidden
         className={`absolute inset-[10%] rounded-full border ${
-          dark ? "border-white/40" : "border-brand/40"
+          dark ? "border-white/45" : "border-brand/45"
         }`}
       />
 
       {/* Center */}
       <div
         className={`absolute inset-[30%] z-10 flex flex-col items-center justify-center rounded-full p-3 text-center shadow-xl ${
-          dark ? "bg-white text-ink" : "bg-ink text-white"
+          dark ? "bg-white text-ink" : "bg-white text-ink"
         }`}
       >
         <Image
@@ -135,17 +148,17 @@ export function Orbit({
           alt=""
           width={company.logoWidth}
           height={company.logoHeight}
-          className="mb-1 h-auto w-1/4 min-w-8"
+          className="mb-1 h-auto w-1/2 min-w-8"
         />
 
-        <p className={`${HEADING} text-[13px] sm:text-base`}>
+        <p className={`${HEADING} text-[20px] sm:text-base`}>
           {company.name}
         </p>
 
         {centerText.map((t) => (
           <p
             key={t}
-            className="text-[10px] font-semibold leading-tight sm:text-[11px]"
+            className="text-[6px] font-semibold leading-tight sm:text-[11px]"
           >
             {t}
           </p>
@@ -161,7 +174,7 @@ export function Orbit({
           return (
             <div
               key={label}
-              className="orbit-item absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
+              className="orbit-item absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-5"
               style={{
                 left: `${50 + radius * Math.cos(angle)}%`,
                 top: `${50 + radius * Math.sin(angle)}%`,
@@ -174,7 +187,7 @@ export function Orbit({
                     grid size-11 place-items-center
                     rounded-full bg-white text-ink shadow-lg
                     transition-transform duration-300
-                    hover:scale-110
+                    hover:scale-150
                     sm:size-14
                   "
                 >
